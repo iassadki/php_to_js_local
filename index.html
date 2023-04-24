@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP TO JS</title>
+</head>
+<body>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"> -->
+        <script>
+        let titre = "Recuperation de variable"
+        console.log(titre)
+
+        // var pluginURL = '<?php echo plugins_url(); ?>test.smc-cse.fr/httpdocs/wp-content/plugins/php_to_js/plugin.php';
+        // var pluginURL = 'test.smc-cse.fr/httpdocs/wp-content/plugins/php_to_js/plugin.php';
+        // console.log(pluginURL)
+        // // Appel AJAX pour recuperer les données PHP du fichier data.php
+        // $.ajax({
+        //         url: "data.php",
+        //         success: function (variable) {
+        //             // Les données renvoyées par data.php sont stockées dans la variable "data"
+        //             var donnees_en_js = JSON.parse(variable);
+        //             console.log(donnees_en_js); // Affiche "Données récupérées depuis PHP" dans la console
+        //         }
+        //     });
+        console.log(" ")
+        // var rcp_url = '/rpc.php';
+        // console.log(rcp_url)
+        
+        // var xhr = new XMLHttpRequest();
+        //     xhr.open('GET', 'data.php', true); 
+        //     xhr.onload = function () {
+        //         if (xhr.status === 200) {
+        //             var variable = JSON.parse(xhr.responseText);
+        //             console.log("Récuperation reussie")
+        //             console.log("La variable récuperée est : "+variable);
+        //         } else {
+        //             console.log("Récuperation échouée")
+        //         }
+        //     };
+        //     xhr.send();
+
+        var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'data.php', true);
+
+            xhr.onreadystatechange = function () {
+                if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                    // La requête a réussi, le statut est 200 OK
+                    console.log('La requête GET a réussi !');
+                    var variable = JSON.parse(xhr.responseText);
+                    console.log("La variable récuperée est : "+variable);
+                } else {
+                    // La requête a échoué ou est en cours de traitement
+                    console.log('La requête GET a échoué ou est en cours de traitement.');
+                }
+            };
+
+            xhr.send();
+
+
+
+
+    </script>
+</body>
+</html>
+
